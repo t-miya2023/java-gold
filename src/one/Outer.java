@@ -1,7 +1,7 @@
 package one;
 
 public class Outer {
-	public Outer() {};
+	public Outer() {System.out.println("A");};
 	//-------------問２-------------
 	private class Inner2{
 		public void test() {
@@ -68,6 +68,10 @@ public class Outer {
 		this.num7 = num7;
 	}
 	
+
+	
+	
+	
 	public static void main(String[] args) {
 		new Outer().new Inner2().test();
 		new Inner3().test();
@@ -81,12 +85,22 @@ public class Outer {
 		new Outer().test6("Java").execute();
 	//7
 		var outer7 = new Outer(10) {
-			//Outerクラスを継承した匿名クラスの実装
+			//Outerクラスを継承した匿名クラスの実装 outerクラスにはmodifyメソッドがないためvarで型推論する必要がある
 			void modify(int num) {
 				setNum7(num);
 			}
 		};
 		outer7.modify(100);
 		System.out.println("1-7：" + outer7.getNum7());
+	//8
+		Outer outer8 = new Outer() {
+			/*匿名クラスはコンストラクタを定義できない
+			  public Outer() {
+				System.out.println("B");
+			} 初期化子を利用する*/
+			{
+				System.out.println("B");
+			}
+		};
 	}
 }
