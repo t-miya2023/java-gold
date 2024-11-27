@@ -14,7 +14,7 @@ public class Q4 {
 		
 		exec.schedule(() -> {
 			System.out.print("finished");
-			exec.shutdown();
+			exec.shutdown();//スレッドプールを閉じる
 		}, 1, TimeUnit.SECONDS);
 		
 		int count = 0;
