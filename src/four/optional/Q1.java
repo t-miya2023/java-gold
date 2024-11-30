@@ -1,5 +1,6 @@
-package four.q1;
+package four.optional;
 
+import java.util.List;
 import java.util.Optional;
 
 public class Q1 {
@@ -69,7 +70,13 @@ public class Q1 {
 		Optional<Integer> q8 = sample4.flatMap(price -> calc(price, 3));//Optionalで内包しないのならflatMapを利用する
 		System.out.println(q8.get());
 
-		
+		System.out.println("-----Q9------------");
+		List<Integer> list = List.of(1, 2, 3 , 4, 5);
+		System.out.println("forEach");
+		//foreach 要素を順番に取り出しながらConsumer型のラムダ式を実行する
+		list.forEach(x -> System.out.println(x));
+		System.out.println("メソッド参照");
+		list.forEach(System.out::println);//コンソールに表示するだけならメソッド参照の方が簡単
  	}
 	
 	private static Optional<Integer> calc(int price, int qty){
