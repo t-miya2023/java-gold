@@ -20,5 +20,11 @@ public class MapTest {
 			System.out.println(map.get(key));
 		});
 		System.out.println("-----------Q15-------------");
+		//map.entrySet()でMap.Entry(１列のkeyとvalue)を取り出す
+		map.entrySet().stream().forEach((Map.Entry<Integer, String> entry) -> {
+			Integer key = entry.getKey();
+			String value = entry.getValue();
+			System.out.println(key + ":" + value);
+		});
 	}
 }
